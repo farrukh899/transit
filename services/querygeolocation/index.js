@@ -12,7 +12,7 @@ function getGeoLocation (inputString) {
 }
 
 function searchRoute(from, to) {
-    const url = `${config.API_BASE_URL}${config.ACCESS.route}&user=${config.API_USER}&pass=${config.API_PASS}&from=${from.coords}&to=${to.coords}`;
+    const url = `${config.API_BASE_URL}${config.ACCESS.route}&user=${config.API_USER}&pass=${config.API_PASS}&from=${from.coords}&to=${to.coords}&show=3&detail=full&epsg_out=4326`;
     return fetch(url, { method: 'GET' })
         .then((response) => response.json())
         .then((responseJson) => {

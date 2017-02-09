@@ -24,6 +24,17 @@ export default class RouteFinder extends Component {
     }
     //  Navigate to route detail page
     detail(route) {
+        route.steps = _.map(route[0].legs, (leg) => {
+            return {
+              type: leg.type,
+              shape: _.map(leg.shape, (shape) => {
+                return {
+                    latitude: shape.y,
+                    longitude: shape.x
+                }
+              })
+            }
+        })
         this.props.navigator.replacePreviousAndPop({
               props: route,
               index: 2
